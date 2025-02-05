@@ -7,13 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
+
 // builder.Services
 //     .AddDbContextPool<AapiDbContext>(options =>options
 //     .UseMySql(builder.Configuration
 //     .GetConnectionString("DefaultConnection")));
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContextPool<AapiDbContext>(options =>
+builder.Services.AddDbContextPool<AppDbContext>(options =>
 {
     var serverVersion = ServerVersion.AutoDetect(connectionString);
     options.UseMySql(connectionString, serverVersion);

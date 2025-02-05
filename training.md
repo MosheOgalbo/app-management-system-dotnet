@@ -1,4 +1,19 @@
-### dotnet new webapi --use-controllers -o API
+### build new progect
+```bash
+dotnet new webapi --use-controllers -o nameProject
+```
 
-### megertih
-#####
+```bash
+ dotnet build
+ ```
+
+### migrations
+ ```bash
+     dotnet ef migrations add Initial
+     dotnet ef database update
+     dotnet ef migrations list
+```
+## open api swagger
+ ```bash
+ dotnet watch run
+ ```

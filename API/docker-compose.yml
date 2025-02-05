@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=your-root-password      # סיסמת root – בחר סיסמה חזקה
+      - MYSQL_DATABASE=ProductDB                      # מסד הנתונים שייווצר אוטומטית
+      - MYSQL_USER=appuser                            # משתמש ליישום
+      - MYSQL_PASSWORD=appuserpassword                # סיסמת המשתמש
+    ports:
+      - "3306:3306"                                  # מפה את הפורט 3306 במכונה המקומית לפורט 3306 בקונטיינר
+    volumes:
+      - mysql-data:/var/lib/mysql                    # הגדרת Volume לשמירת הנתונים
+
+volumes:
+  mysql-data:

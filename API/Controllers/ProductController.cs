@@ -19,6 +19,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<IActionResult> Product()
         {
+            await Task.Delay(1000);
             return Ok(await _context.products.AsNoTracking().ToListAsync());
         }
         [HttpPost]
